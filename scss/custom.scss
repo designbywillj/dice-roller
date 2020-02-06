@@ -1,0 +1,205 @@
+// Colors
+$blue: #258df5;
+$light-gray: #2f3942;
+$dark-gray: #192128;
+$white: #ffffff;
+
+// Fonts
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+	"Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+	"Segoe UI Emoji", "Segoe UI Symbol";
+
+// Grid
+$grid-gutter-width: 1.5rem;
+
+// Headings
+$headings-margin-bottom: 2rem;
+$h2-font-size: 1rem;
+$headings-font-weight: 400;
+$display1-size: 2rem;
+$display1-weight: 600;
+
+// Body
+$body-bg: $dark-gray;
+$body-color: $white;
+
+html,
+body,
+div#app {
+	height: 100vh;
+}
+
+body {
+    overflow: hidden;
+}
+
+div#app {
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(8rem);
+    opacity: 0;
+    animation: onload 0.75s cubic-bezier(0, 0, 0.25, 1) 0.25s forwards;
+}
+
+main, article {
+    height: 100%;
+}
+
+article {
+    align-items: center;
+}
+
+h1,
+h2 {
+    text-align: center;
+    user-select: none;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.dice {
+	input[type="radio"] {
+		display: none;
+
+		&:checked + label {
+			box-sizing: border-box;
+			border: 0.25rem solid $blue;
+			box-shadow: 0px 8px 16px rgba(29, 110, 191, 0.32);
+		}
+	}
+
+	&__btn {
+		width: 100%;
+		height: 4rem;
+		margin-bottom: 1.5rem;
+		background-color: $light-gray;
+		border-radius: 1.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 0.25rem solid transparent;
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.16);
+        cursor: pointer;
+        user-select: none;
+		transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	}
+
+	.btn {
+		width: 100%;
+		height: 3rem;
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		font-weight: 600;
+        box-shadow: 0px 8px 16px rgba(29, 110, 191, 0.32);
+        transition: background-color 0.25s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.25s ease-in-out;
+        
+        &:disabled {
+            opacity: 0.5;
+            cursor: auto;
+        }
+    }
+}
+
+.result {
+	width: 40%;
+	margin: 0 auto 2rem auto;
+	padding-top: 40%;
+	background-color: $light-gray;
+	border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+	box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.16);
+
+	&__text {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+        left: 0;
+        font-size: 3rem;
+        font-weight: 600;
+		display: flex;
+		align-items: center;
+        justify-content: center;
+        user-select: none;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s cubic-bezier(0.75, 0, 0.25, 1), transform 0.5s cubic-bezier(0.75, 0, 0.25, 1);
+        
+        &--transition {
+            opacity: 0;
+            transform: translateY(4rem);
+        }
+	}
+}
+
+@include media-breakpoint-up(lg) {
+    $headings-margin-bottom: 3rem;
+
+	div#app {
+		justify-content: center;
+    }
+    
+    main, article {
+        height: auto;
+    }
+
+    article {
+        align-items: flex-start;
+    }
+
+	.display-1 {
+		font-size: 3rem;
+	}
+
+	.dice {
+		&__btn {
+			height: 8rem;
+		}
+	}
+
+	.result {
+		width: 100%;
+		margin: 0 0 0 auto;
+        padding-top: 100%;
+        
+        &__text {
+            font-size: 6rem;
+        }
+    }
+    
+	h1,
+	h2 {
+		text-align: left;
+	}
+}
+
+@keyframes onload {
+    0% {
+        transform: translateY(8rem);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@keyframes result {
+    0% {
+        transform: translateY(4rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
