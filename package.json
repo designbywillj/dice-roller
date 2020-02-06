@@ -1,0 +1,23 @@
+{
+  "name": "dice-roller",
+  "version": "1.0.0",
+  "description": "Simple multi-sided dice roller",
+  "main": "dist/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch app/scss -o dist/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/designbywillj/dice-roller.git"
+  },
+  "author": "Will Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/designbywillj/dice-roller/issues"
+  },
+  "homepage": "https://github.com/designbywillj/dice-roller#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

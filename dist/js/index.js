@@ -1,24 +1,27 @@
-let diceWrapper = document.getElementById('dice-wrapper')
-let submit = document.getElementById('submit')
+const diceWrapper = document.getElementById('dice-wrapper')
+const submitWrapper = document.getElementById('submit-wrapper')
+const submit = document.getElementById('submit')
 
-let dice = [4, 6, 8, 10, 12, 20]
+const dice = [4, 6, 8, 10, 12, 20]
 
 function generateButtons() {
     for (i = 0; i < dice.length; i++) {
-        let btnCol = document.createElement('div')
-        btnCol.classList.add('col-4')
-        diceWrapper.insertBefore(btnCol, submit)
+        const btnValue = dice[i]
 
-        let btnRadio = document.createElement('input')
+        const btnCol = document.createElement('div')
+        btnCol.classList.add('col-4')
+        diceWrapper.insertBefore(btnCol, submitWrapper)
+
+        const btnRadio = document.createElement('input')
         btnRadio.type = 'radio'
         btnRadio.name = 'dice'
-        btnRadio.id = 'd' + dice[i]
-        btnRadio.value = dice[i]
+        btnRadio.value = btnValue
+        btnRadio.id = btnValue
         btnCol.appendChild(btnRadio)
 
-        let btnLabel = document.createElement('label')
-        btnLabel.setAttribute('for', btnRadio.id)
-        btnLabel.innerText = btnRadio.id.toUpperCase()
+        const btnLabel = document.createElement('label')
+        btnLabel.setAttribute('for', btnValue)
+        btnLabel.innerText = btnValue
         btnLabel.classList.add('dice__btn')
         btnCol.appendChild(btnLabel)
     }
@@ -26,11 +29,20 @@ function generateButtons() {
 generateButtons()
 
 submit.addEventListener('click', function() {
-    let radio = document.getElementsByName('dice')
+    const radio = document.getElementsByName('dice')
     for (i = 0; i < radio.length; i++) { 
         if (radio[i].checked) {
-            let resultText = document.getElementById('result')
-            resultText.innerText = Math.floor(Math.random() * radio[i].value + 1)
+            const radioValue = radio[i].value
+            const resultText = document.getElementById('result')
+            resultText.classList.add('result__text--transition')
+            submit.style.pointerEvents = 'none'
+            submit.style.opacity = 0.5
+            setTimeout(function() {
+                submit.style.opacity = 1
+                submit.style.pointerEvents = 'auto'
+                resultText.classList.remove('result__text--transition')
+                resultText.innerText = Math.floor(Math.random() * radioValue + 1)
+            }, 500)
         }
     }
 })
