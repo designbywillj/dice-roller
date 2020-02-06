@@ -35,11 +35,9 @@ submit.addEventListener('click', function() {
             const radioValue = radio[i].value
             const resultText = document.getElementById('result')
             resultText.classList.add('result__text--transition')
-            submit.style.pointerEvents = 'none'
-            submit.style.opacity = 0.5
+            submit.disabled = true
             setTimeout(function() {
-                submit.style.opacity = 1
-                submit.style.pointerEvents = 'auto'
+                submit.disabled = false
                 resultText.classList.remove('result__text--transition')
                 resultText.innerText = Math.floor(Math.random() * radioValue + 1)
             }, 500)
