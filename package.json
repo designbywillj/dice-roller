@@ -2,10 +2,10 @@
   "name": "dice-roller",
   "version": "1.0.0",
   "description": "Simple multi-sided dice roller",
-  "main": "dist/js/index.js",
+  "main": "js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --watch scss -o /"
+    "scss": "node-sass --watch scss -o css"
   },
   "repository": {
     "type": "git",
