@@ -23,6 +23,8 @@ $display1-weight: 600;
 $body-bg: $dark-gray;
 $body-color: $white;
 
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 html,
 body,
 div#app {
