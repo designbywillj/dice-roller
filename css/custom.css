@@ -7231,7 +7231,7 @@ h2 {
       opacity: 0;
       transform: translateY(4rem); }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   div#app {
     justify-content: center; }
   main, article {

@@ -139,7 +139,7 @@ h2 {
 	}
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
     $headings-margin-bottom: 3rem;
 
 	div#app {
