@@ -19,6 +19,6 @@
   "homepage": "https://github.com/designbywillj/dice-roller#readme",
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   }
 }
